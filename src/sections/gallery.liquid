@@ -1,0 +1,119 @@
+<!-- Welcome section starts -->
+<section class="welcome">
+  <div class="page-width section-text gallery">
+    <h1 class="gallery__title">{{ section.settings.text-title }}</h1>
+    <p class="gallery__desc">{{ section.settings.text-content }}</p>
+  </div>
+  <div class="page-width image-block">
+
+    {%- assign blocks = section.blocks -%}
+
+    {% case section.settings.grid %}
+    {% when 2 %}
+    {%- assign grid_item_width = 'medium-up--one-half' -%}
+    {%- assign image_size = '530x' -%}
+    {% when 3 %}
+    {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+    {%- assign image_size = '350x' -%}
+    {% when 4 %}
+    {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+    {%- assign image_size = '250x' -%}
+    {% when 5 %}
+    {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+    {%- assign image_size = '225x' -%}
+    {% endcase %}
+
+    <ul class="gallery__content">
+
+      {% for block in section.blocks %}
+        {% if section.settings.grid %}
+          <li class="gallery__content-item {{ grid_item_width }}">
+            {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | img_url:'master'}}" />
+            <span class="gallery__content-span">{{ block.settings.image-title }}</span>
+            {%- else -%}
+            {{ 'image' | placeholder_svg_tag }}
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+        {% else %}
+        <li class="grid__item {{ grid_item_width }}">
+          {% include 'collection-grid-item', collection: collection %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- Welcome section ends -->
+{% schema %}
+      {
+        "name": "Custom Gallery",
+        "tag": "section",
+        "settings": [
+      {
+        "id": "text-title",
+        "type": "text",
+        "label": "Heading",
+        "default": "Title"
+      },
+      {
+        "id": "text-content",
+        "type": "text",
+        "label": "Add custom text below",
+        "default": "Add your text here"
+      },
+      {
+        "type": "range",
+        "id": "grid",
+        "label": {
+        "en": "Collections per row"
+      },
+        "default": 3,
+        "min": 2,
+        "max": 5,
+        "step": 1
+      }
+    ],
+
+      "blocks": [
+      {
+        "type": "image",
+        "name": "image block",
+        "settings": [
+      {
+        "type": "image_picker",
+        "label": "your image",
+        "id": "image"
+      },
+        {
+          "type": "text",
+          "label": "enter your text",
+          "id": "image-title"
+        }
+      ]
+    },
+      {
+        "type": "collection",
+        "name": {
+        "en": "Collection"
+      },
+        "settings": [
+        {
+          "label": {
+          "en": "collection"
+        },
+          "id": "collection",
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

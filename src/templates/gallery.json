@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "main": {
+      "type": "gallery",
+      "blocks": {
+        "322ff770-a30b-4ebe-9c1f-8f2011c7c2df": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/grey-couch-with-a-bookcase-behind-it.jpg",
+            "image-title": "Room room room"
+          }
+        },
+        "1e8ba7dd-70a5-4ad3-ad84-05d0f8b7c296": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/photo_2020-11-26_19.45.11.jpg",
+            "image-title": "nature"
+          }
+        },
+        "d92dd4d0-92a2-44ae-810b-9d7f04ab07c4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fashionable-man-by-textured-wall.jpg",
+            "image-title": "Descriptopn More text"
+          }
+        },
+        "9e263b62-7fad-4b8a-9054-b31a5b9f201b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/slider-item6.png",
+            "image-title": "Development bla bla bla"
+          }
+        }
+      },
+      "block_order": [
+        "322ff770-a30b-4ebe-9c1f-8f2011c7c2df",
+        "1e8ba7dd-70a5-4ad3-ad84-05d0f8b7c296",
+        "d92dd4d0-92a2-44ae-810b-9d7f04ab07c4",
+        "9e263b62-7fad-4b8a-9054-b31a5b9f201b"
+      ],
+      "settings": {
+        "text-title": "Our gallery",
+        "text-content": "Description"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
